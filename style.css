@@ -13,6 +13,10 @@
   --txtPrimary_clr: #000000;
   --testBgClr: rgba(0, 0, 100, 0.2);
   --myGap: 20px;
+
+  --cellWidth: 6rem;
+  --cellHeight: 2.5rem;
+  --SrCellWidth: 3rem;
 }
 
 body {
@@ -38,12 +42,14 @@ main{
   z-index: 200;
 
 }
+
 /* for all header cells */
 #tableHead > b{
-  /* flex-shrink: 0; */
+  flex-shrink: 0;
+  vertical-align: middle;
   text-align: center;
   box-sizing: border-box;
-  min-width: 5.5rem;
+  width: var(--cellWidth);
   padding: 5px 0;
   background-color: var(--Primary_clr);
   border: 1px solid var(--Secondary_clr);
@@ -51,11 +57,12 @@ main{
 
 #tableHead > b:nth-child(1){
   background-color: var(--OptionActive_clr);
-  min-width: 3rem;
+  width: var(--SrCellWidth);
   text-align: center;
   position: sticky;
   left: 0px;
   top: 0px;
+  vertical-align: middle;
 }
 
 /* prevents the header sticky functionality from 
@@ -70,18 +77,28 @@ breaking while overflow-x is set to scroll  */
 
 /* cells */
 .tableRow>div{
-  min-width: 5.5rem;
+  flex-shrink: 0;
+  width: var(--cellWidth);
+  height: var(--cellHeight);
   box-sizing: border-box;
   padding: 5px 0;
   background-color: var(--Primary_clr);
   border: 1px solid var(--Secondary_clr);
+  overflow-y: scroll;
+  /* overflow: hidden; */
+}
+
+.tableRow>div::-webkit-scrollbar{
+  display: none;
 }
 
 .tableRow>b{
   padding: 5px 0;
-  min-width: 3rem;
+  width: var(--SrCellWidth);
+  height: var(--cellHeight);
   position: sticky;
   left: 0px;
+  vertical-align: middle;
   text-align: center;
   background-color: var(--Primary_clr);
   border: 1px solid var(--Secondary_clr);

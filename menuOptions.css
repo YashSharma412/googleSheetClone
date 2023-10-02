@@ -51,9 +51,11 @@
 }
 
 #activeCellDisplay {
+  min-width: 55px;
+  text-align: center;
   width: fit-content;
   padding: 7px 10px;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   background-color: var(--Primary_clr);
 }
