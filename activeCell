@@ -1,6 +1,0 @@
-let ActiveCellId = 'cell';
-
-function onCellFocus(event){
-    ActiveCellId = event.target.id;
-    currentActiveCellIdDisplay.innerText = ActiveCellId;
-}

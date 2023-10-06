@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/favIconGoogleSheets.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="menuOptions.css">
-    <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/grid.css">
+    <link rel="stylesheet" href="./styles/menuOptions.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/style.css">
     <title>Google-Sheets Clone - Home Page</title>
 </head>
 <body>
@@ -54,19 +55,28 @@
             </ul>
         </section>  
         <section id="menuOptionsTray">
-            <div class="material-icons">content_cut</div>
-            <div class="material-icons">content_copy</div>
-            <div class="material-icons">content_paste</div>
-            <div><select name="font_family_select" id="fontFamilySelect"></select></div>
-            <div><select name="font_size_select" id="fontSizeSelect"></select></div>
-            <div class="material-icons">format_bold</div>
-            <div class="material-icons">format_italic</div>
-            <div class="material-icons">format_underlined</div>
-            <div class="material-icons">format_align_left</div>
-            <div class="material-icons">format_align_center</div>
-            <div class="material-icons">format_align_right</div>
-            <div class="material-icons">format_color_text</div>
-            <div class="material-icons">format_color_fill</div>
+            <div class="material-icons" id="cutBtn" onclick="handleCut()">content_cut</div>
+            <div class="material-icons" id="copyBtn" onclick="handleCopy()">content_copy</div>
+            <div class="material-icons" id="pasteBtn" onclick="handlePaste()">content_paste</div>
+            <!-- select font family Options will be added dynamically -->
+            <div><select name="font_family_select" id="fontFamilySelect" onchange="ChangeFontFamilyOnSelect(this)"></select></div>
+            <!-- select font size Options will be added dynamically -->
+            <div><select name="font_size_select" id="fontSizeSelect" onchange="ChangeFontSizeOnSelect(this)"></select></div>
+            <div class="material-icons" id="boldBtn" onclick="handleBold()">format_bold</div>
+            <div class="material-icons" id="italicBtn" onclick="handleItalic()">format_italic</div>
+            <div class="material-icons" id="underlineBtn" onclick="handleUnderline()">format_underlined</div>
+            <div class="material-icons textAlignBtns" data-value="start" onclick="handleTextAlign(this)">format_align_left</div>
+            <div class="material-icons textAlignBtns" data-value="center" onclick="handleTextAlign(this)">format_align_center</div>
+            <div class="material-icons textAlignBtns" data-value="end" onclick="handleTextAlign(this)">format_align_right</div>
+
+            <div>
+                <label for="color-picker"><span class="material-icons">format_color_text</span></label>
+                <input type="color" id="color-picker" onchange="handleTextColor(this)" style="width: 0; height: 0;">
+            </div>
+            <div>
+                <label for="bgcolor-picker"><span class="material-icons">format_color_fill</span></label>
+                <input type="color" id="bgcolor-picker" onchange="HandleBackgroundColor(this)" style="width: 0; height: 0;">
+            </div>
             <div class="material-icons">cloud_download</div>
             <div class="material-icons">cloud_upload</div>
         </section>
@@ -87,9 +97,10 @@
         <div id="addSheetsBtn"><img src="./assets/post_add_FILL0_wght400_GRAD0_opsz24.svg" alt="Add Sheets"></div>
         <div class="sheetBtn">Sheet 1</div>
     </footer>
-
-    <script src="./activeCell"></script>
-    <script src="./selectOpt.js"></script>
-    <script src="./script.js"></script>
+    
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/activeCell.js"></script>
+    <script src="./scripts/selectOpt.js"></script>
+    <script src="./scripts/manipulateCellProperties"></script>
 </body>
 </html>
